@@ -5,7 +5,7 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{159A6F7A-C1C2-717A-466C-A5C713324324}</ProjectGuid>
+	<ProjectGuid>{3BA0E4D3-6182-230A-D46D-44EBBAF70F90}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
@@ -47,7 +47,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Camera\CameraBehavior.cs" />
-     <Compile Include="Assets\Scripts\Main Character\UserMovement.cs" />
+     <Compile Include="Assets\Scripts\EnemyCop\CopAttack.cs" />
+     <Compile Include="Assets\Scripts\EnemyCop\CopMovement.cs" />
+     <Compile Include="Assets\Scripts\Player\UserHealth.cs" />
+     <Compile Include="Assets\Scripts\Player\UserMovement.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
