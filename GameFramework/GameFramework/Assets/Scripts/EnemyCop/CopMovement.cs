@@ -25,13 +25,13 @@ public class CopMovement : MonoBehaviour {
 		// only set the dude's destination if both the player and enemy are alive
 //		if(enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
 //		{
-//			// This is where I want to go. Towards the player.
-//			nav.SetDestination (player.position);
-//		}
+			// This is where I want to go. Towards the player.
+			nav.SetDestination (player.position);
+		//}
 //		else
 //		{
-//			// if one is dead, we don't want to go anywhere, so disable the nav mesh
-//			nav.enabled = false;
+			// if one is dead, we don't want to go anywhere, so disable the nav mesh
+			nav.enabled = false;
 //		}
 	}
 }
