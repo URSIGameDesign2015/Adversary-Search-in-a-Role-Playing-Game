@@ -17,9 +17,9 @@ GameObject:
   - 54: {fileID: 5464942}
   - 82: {fileID: 8224034}
   - 135: {fileID: 13515466}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BrownPlayer
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,7 +32,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 439860}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Humanoid1:Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 436388}
   - 137: {fileID: 13771044}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Humanoid1:Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   - 4: {fileID: 492644}
   - 199: {fileID: 19978166}
   - 198: {fileID: 19814636}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HitParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113688}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.000104768646, y: .920353055, z: -.000540569948}
+  m_LocalPosition: {x: -.000104768646, y: 1.91999996, z: -.000540569948}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 439860}
@@ -331,7 +331,7 @@ NavMeshAgent:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113688}
   m_Enabled: 1
-  m_Radius: .319999993
+  m_Radius: .400000006
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -340,8 +340,8 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: .970000029
-  m_BaseOffset: 0
+  m_Height: 1.71000004
+  m_BaseOffset: .930000007
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!198 &19814636
