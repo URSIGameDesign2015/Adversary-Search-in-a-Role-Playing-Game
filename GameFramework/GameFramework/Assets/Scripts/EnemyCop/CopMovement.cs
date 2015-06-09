@@ -3,10 +3,11 @@ using System.Collections;
 
 public class CopMovement : MonoBehaviour {
 
-	public int maxStepCounter;
+	//public int maxStepCounter;
 	public float xMovement;
 	public float zMovement;
 	public int speed;
+	public GameObject building;
 
 	// what the enemy is moving toward
 	Transform player;
@@ -15,7 +16,8 @@ public class CopMovement : MonoBehaviour {
 	NavMeshAgent nav;
 	Vector3 movement;
 	Rigidbody enemyRigidBody;
-	int currentStepCounter;
+	//int currentStepCounter;
+
 	
 	void Awake ()
 	{
@@ -25,14 +27,14 @@ public class CopMovement : MonoBehaviour {
 		//playerHealth = player.GetComponent <PlayerHealth> ();
 		//enemyHealth = GetComponent <EnemyHealth> ();
 		nav = GetComponent <NavMeshAgent> ();
-		currentStepCounter = 0;
+//		currentStepCounter = 0;
 
 	}
 	
 	// not fixed update because not keeping in time with physics
 	void Update ()
 	{
-		if (doWeSeePlayer()) {
+		if (!doWeSeePlayer()) {
 			onPatrol();
 		} else {
 			nav.SetDestination(player.position);
@@ -52,26 +54,48 @@ public class CopMovement : MonoBehaviour {
 	}
 
 	void onPatrol() {
-		// if it's time to turn....
-		if (currentStepCounter >= maxStepCounter) {
-			// Rotate
-			//transform.Rotate (transform.rotation.x + 90,transform.rotation.y,transform.rotation.z);
-			// Reset currentStepCounter
-			currentStepCounter = 0;
-			// set x & z movements
-			xMovement = 1f;
-			zMovement = 0f;
-
-		}
 		// Keep moving
 		movement.Set(xMovement, 0f, zMovement);
+		// so we move by time, not by frame & we move at our speed
 		movement = movement.normalized * speed * Time.deltaTime;
 		enemyRigidBody.MovePosition(transform.position + movement);
-		currentStepCounter++;
 	}
 
+	// if it's time to turn....
+	void OnTriggerExit() {
+		// Rotate
+		//transform.Rotate (transform.rotation.x + 90,transform.rotation.y,transform.rotation.z);
+
+		// Change where we move
+		// set x & z movements appropriately
+		switch ((int) xMovement) 
+		{
+		case 0:
+			if (zMovement == 1) {
+				xMovement = 1f;
+				zMovement = 0f;
+			} else {
+				xMovement = -1f;
+				zMovement = 0f;
+			}
+			break;
+		case 1:
+			xMovement = 0f;
+			zMovement = -1f;
+			break;
+		case -1:
+			xMovement = 0f;
+			zMovement = 1f;
+			break;
+		default:
+			break;
+		}
+		
+	}
+
+
 	bool doWeSeePlayer() {
-		return true;
+		return false;
 	}
 
 	void goBackToPatrol() {
