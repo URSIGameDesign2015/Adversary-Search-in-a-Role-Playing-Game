@@ -31,7 +31,7 @@ public class CopMovement : MonoBehaviour {
 //		else
 //		{
 			// if one is dead, we don't want to go anywhere, so disable the nav mesh
-			nav.enabled = false;
+			//nav.enabled = false;
 //		}
 	}
 }
