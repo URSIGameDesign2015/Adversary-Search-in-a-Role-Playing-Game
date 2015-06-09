@@ -3,7 +3,14 @@ using System.Collections;
 
 public class CopMovement : MonoBehaviour {
 
-	//public int maxStepCounter;
+	// TO DO:
+	// - Raycasting so we can see the player
+	// - How do we go back to patrol area? -- go back to building GameObject?
+ 	// - How do we go back to patrolling? 
+	//       -- have a bool that says if we are patrolling or not
+	//       -- Initially & OnTriggerEnter --> we are patrolling 
+
+
 	public float xMovement;
 	public float zMovement;
 	public int speed;
@@ -18,7 +25,6 @@ public class CopMovement : MonoBehaviour {
 	Rigidbody enemyRigidBody;
 	//int currentStepCounter;
 
-	
 	void Awake ()
 	{
 		// where the player is
@@ -27,7 +33,6 @@ public class CopMovement : MonoBehaviour {
 		//playerHealth = player.GetComponent <PlayerHealth> ();
 		//enemyHealth = GetComponent <EnemyHealth> ();
 		nav = GetComponent <NavMeshAgent> ();
-//		currentStepCounter = 0;
 
 	}
 	
