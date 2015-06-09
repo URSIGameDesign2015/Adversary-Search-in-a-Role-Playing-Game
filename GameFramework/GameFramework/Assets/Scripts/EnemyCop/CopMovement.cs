@@ -73,6 +73,14 @@ public class CopMovement : MonoBehaviour {
 
 		// Change where we move
 		// set x & z movements appropriately
+
+		// Movement Key: (x, z)
+		// UP: (0, 1)
+		// RIGHT: (1, 0)
+		// DOWN: (0, -1)
+		// LEFT: (-1, 0)
+
+
 		switch ((int) xMovement) 
 		{
 		case 0:
