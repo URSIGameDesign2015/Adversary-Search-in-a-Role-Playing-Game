@@ -26,6 +26,9 @@ public class CopMovement : MonoBehaviour {
 	int checkpointIndex;
 	bool areWeFollowingPlayer;
 
+	// for testing
+	int counter = 0;
+
 	void Awake ()
 	{
 		// where the player is
@@ -77,12 +80,25 @@ public class CopMovement : MonoBehaviour {
 	}
 
 	void goBackOnPatrol() {
+		areWeFollowingPlayer = false;
 		int goToCheckpoint = -1;
-		int minimumDistance = -100000000;
+		float minimumDistance = 100000000;
 		// see which checkpoint we are closest to and set our destination to that checkpoint
-		foreach (Transform checkpoint in checkpoints) {
-
+		// using for instead of foreach so we can set the checkpointIndex too
+		for (int i = 0; i < checkpoints.Length; i++) {
+			// get the distance from the enemy player
+			float distance = Vector3.Distance(checkpoints[i].position, enemyTransform.position);
+			// if less than minimumDistance, then make the checkpoint the one we go to. 
+			Debug.Log (distance);
+			if (distance < minimumDistance) {
+				minimumDistance = distance;
+				goToCheckpoint = i;
+			}
 		}
+		// if two checkpoints are equally distance from each other, then only the first
+		// will be taken, but that's okay because this is an approximation. 
+		checkpointIndex = goToCheckpoint;
+		nav.SetDestination (checkpoints [checkpointIndex].position);
 	}
 
 	// if it's time to turn....
@@ -95,7 +111,7 @@ public class CopMovement : MonoBehaviour {
 			}
 
 			// set next destination
-			//Debug.Log (checkpointIndex);
+			Debug.Log (checkpointIndex);
 			nav.SetDestination (checkpoints [checkpointIndex].position);
 
 			checkpointIndex++;
@@ -103,7 +119,8 @@ public class CopMovement : MonoBehaviour {
 	}
 
 	bool doWeSeePlayer() {
-		return false;
+		counter++;
+		return counter < 50;
 	}
 
 
