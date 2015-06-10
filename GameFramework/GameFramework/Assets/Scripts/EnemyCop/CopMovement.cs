@@ -5,7 +5,7 @@ public class CopMovement : MonoBehaviour {
 
 	// TO DO:
 	// - Create police paths with box collider check points (navigation)
-	// - Raycasting so we can see the player
+	// - Raycasting; so we can see the player
 	//       -- if you can get the tag, check if it is "player"
 	// - How do we go back to patrol area? -- go back to building GameObject? or box collider
  	// - How do we go back to patrolling? 
@@ -22,7 +22,7 @@ public class CopMovement : MonoBehaviour {
 	
 >>>>>>> origin/master
 	public int speed;
-	public ArrayList[Transform] checkpoints; 
+	public Transform[] checkpoints;
 
 	// what the enemy is moving toward
 	Transform player;
@@ -33,6 +33,7 @@ public class CopMovement : MonoBehaviour {
 	Rigidbody enemyRigidBody;
 	int checkpointIndex;
 
+
 	void Awake ()
 	{
 		// where the player is
@@ -41,8 +42,7 @@ public class CopMovement : MonoBehaviour {
 		//playerHealth = player.GetComponent <PlayerHealth> ();
 		//enemyHealth = GetComponent <EnemyHealth> ();
 		nav = GetComponent <NavMeshAgent> ();
-		nav.SetDestination (checkpoints [0]);
-
+		nav.SetDestination (checkpoints [0].position);
 	}
 	
 	// not fixed update because not keeping in time with physics
@@ -81,12 +81,12 @@ public class CopMovement : MonoBehaviour {
 		//transform.Rotate (transform.rotation.x + 90,transform.rotation.y,transform.rotation.z);
 
 		// When we enter a collider, set destination to the next collider's position
-		if (checkpointIndex >= checkpoints.Count) {
+		if (checkpointIndex >= checkpoints.Length) {
 			checkpointIndex = 0;
 		}
 
 		// set next destination
-		nav.SetDestination (checkpoints [checkpointIndex]);
+		nav.SetDestination (checkpoints[checkpointIndex].position);
 
 		checkpointIndex++;
 	}
