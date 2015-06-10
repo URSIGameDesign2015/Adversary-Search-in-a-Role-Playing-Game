@@ -16,7 +16,8 @@ public class CopMovement : MonoBehaviour {
 	public float xMovement;
 	public float zMovement;
 	public int speed;
-	public GameObject building;
+	public ArrayList checkpoints; 
+	//public GameObject building;
 
 	// what the enemy is moving toward
 	Transform player;
