@@ -11,16 +11,9 @@ public class CopMovement : MonoBehaviour {
  	// - How do we go back to patrolling? 
 	//       -- have a bool that says if we are patrolling or not
 	//       -- Initially & OnTriggerEnter --> we are patrolling 
-<<<<<<< HEAD
-
-
-	public float xMovement;
-	public float zMovement;
-=======
 	// - Create a non-player character that follows the player character?
 	//       -- make the sidekick a child (in unity terms) of the player
-	
->>>>>>> origin/master
+
 	public int speed;
 	public Transform[] checkpoints;
 
