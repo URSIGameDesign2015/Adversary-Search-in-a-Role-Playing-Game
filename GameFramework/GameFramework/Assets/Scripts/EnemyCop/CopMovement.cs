@@ -128,6 +128,7 @@ public class CopMovement : MonoBehaviour {
 	}
 
 	bool doWeSeePlayer() {
+<<<<<<< HEAD
 		RaycastHit[] hits;
 		hits = Physics.RaycastAll(transform.position, transform.forward, 100.0F);	
 		for (int i = 0; i < hits.Length; i++) {
@@ -150,7 +151,12 @@ public class CopMovement : MonoBehaviour {
 		shootRay.origin = enemyTransform.transform.position;
 		shootRay.direction = enemyTransform.transform.forward;
 		if (Physics.Raycast(enemyTransform.position, shootHit, 100f, shootableMask)) {
+=======
+		if (Physics.Raycast (enemyTransform.position, transform.forward, 100.0f, shootableMask)) {
+>>>>>>> origin/master
 			return true;
+		} else {
+			return false;
 		}
 	}
 
