@@ -18,20 +18,19 @@ public class CopMovement : MonoBehaviour {
 	public Transform[] checkpoints;
 
 	// what the enemy is moving toward
-	Transform player;
+	Transform playerTransform;
+	Transform enemyTransform;
 	//PlayerHealth playerHealth;
 	//EnemyHealth enemyHealth;
 	NavMeshAgent nav;
-	Vector3 movement;
-	Rigidbody enemyRigidBody;
 	int checkpointIndex;
 	bool areWeFollowingPlayer;
 
 	void Awake ()
 	{
 		// where the player is
-		player = GameObject.FindGameObjectWithTag ("Player").transform; 
-		enemyRigidBody = GetComponent<Rigidbody> ();
+		playerTransform = GameObject.FindGameObjectWithTag ("Player").transform; 
+		enemyTransform = GetComponent<Transform> ();
 		//playerHealth = player.GetComponent <PlayerHealth> ();
 		//enemyHealth = GetComponent <EnemyHealth> ();
 		areWeFollowingPlayer = false;
@@ -74,13 +73,14 @@ public class CopMovement : MonoBehaviour {
 
 	void followPlayer() {
 		areWeFollowingPlayer = true;
-		nav.SetDestination(player.position);
+		nav.SetDestination(playerTransform.position);
 	}
 
 	void goBackOnPatrol() {
-		int returnCheckpoint = -100;
+		int goToCheckpoint = -1;
+		int minimumDistance = -100000000;
 		// see which checkpoint we are closest to and set our destination to that checkpoint
-		for (Transform checkpoint in checkpoints) {
+		foreach (Transform checkpoint in checkpoints) {
 
 		}
 	}
