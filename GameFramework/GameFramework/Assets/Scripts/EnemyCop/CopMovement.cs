@@ -6,7 +6,6 @@ public class CopMovement : MonoBehaviour {
 	// TO DO:
 	// - Create police paths with box collider check points (navigation)
 	// - Raycasting so we can see the player
-	// - How do we go back to patrol area? -- go back to building GameObject?
 	//       -- if you can get the tag, check if it is "player"
 	// - How do we go back to patrol area? -- go back to building GameObject? or box collider
  	// - How do we go back to patrolling? 
