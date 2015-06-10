@@ -25,6 +25,7 @@ public class CopMovement : MonoBehaviour {
 	NavMeshAgent nav;
 	int checkpointIndex;
 	bool areWeFollowingPlayer;
+	int shootableMask;
 
 	void Awake ()
 	{
@@ -103,7 +104,9 @@ public class CopMovement : MonoBehaviour {
 	}
 
 	bool doWeSeePlayer() {
-		return false;
+		if (Physics.Raycast(enemyTransform.position, transform.forward, 100.0f, shootableMask)) {
+			return true;
+		}
 	}
 
 
