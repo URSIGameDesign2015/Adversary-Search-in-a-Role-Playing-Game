@@ -124,14 +124,9 @@ public class CopMovement : MonoBehaviour {
 	}
 
 	bool doWeSeePlayer() {
-<<<<<<< HEAD
 		if (Physics.Raycast(enemyTransform.position, transform.forward, 100.0f, shootableMask)) {
 			return true;
 		}
-=======
-		counter++;
-		return counter < 50;
->>>>>>> origin/master
 	}
 
 
