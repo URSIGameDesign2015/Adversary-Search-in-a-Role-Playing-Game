@@ -3,14 +3,17 @@ using System.Collections;
 
 public class CopMovement : MonoBehaviour {
 
-	// TO DO:
+	// DONE:
 	// - Create police paths with box collider check points (navigation)
+	// - How do we go back to patrol area? -- go back to building GameObject? or box collider
+	// - How do we go back to patrolling --> became areWeFollowingPlayer? 
+	//       -- have a bool that says if we are patrolling or not
+	//       -- Initially & OnTriggerEnter --> we are patrolling
+
+	// TO DO:
 	// - Raycasting; so we can see the player
 	//       -- if you can get the tag, check if it is "player"
-	// - How do we go back to patrol area? -- go back to building GameObject? or box collider
- 	// - How do we go back to patrolling? 
-	//       -- have a bool that says if we are patrolling or not
-	//       -- Initially & OnTriggerEnter --> we are patrolling 
+  
 	// - Create a non-player character that follows the player character?
 	//       -- make the sidekick a child (in unity terms) of the player
 
@@ -98,7 +101,8 @@ public class CopMovement : MonoBehaviour {
 		// if two checkpoints are equally distance from each other, then only the first
 		// will be taken, but that's okay because this is an approximation. 
 		checkpointIndex = goToCheckpoint;
-		nav.SetDestination (checkpoints [checkpointIndex].position);
+		//nav.SetDestination (checkpoints [checkpointIndex].position);
+		OnTriggerEnter ();
 	}
 
 	// if it's time to turn....
