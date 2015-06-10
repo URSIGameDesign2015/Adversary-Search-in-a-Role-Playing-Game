@@ -25,7 +25,7 @@ public class CopMovement : MonoBehaviour {
 	Vector3 movement;
 	Rigidbody enemyRigidBody;
 	int checkpointIndex;
-	int counter = 0;
+	bool areWeFollowingPlayer;
 
 	void Awake ()
 	{
@@ -34,17 +34,29 @@ public class CopMovement : MonoBehaviour {
 		enemyRigidBody = GetComponent<Rigidbody> ();
 		//playerHealth = player.GetComponent <PlayerHealth> ();
 		//enemyHealth = GetComponent <EnemyHealth> ();
+		areWeFollowingPlayer = false;
 		nav = GetComponent <NavMeshAgent> ();
 		OnTriggerEnter ();
+
 	}
 	
 	// not fixed update because not keeping in time with physics
 	void Update ()
 	{
-		if (!doWeSeePlayer()) {
-			onPatrol();
-		} else {
-			nav.SetDestination(player.position);
+		// if we see the player, then follow the player
+		if (doWeSeePlayer ()) {
+			followPlayer ();
+		} 
+		// if we were just following the player, but don't see the player anymore
+		// go back on patrol
+		else if (areWeFollowingPlayer) {
+			goBackOnPatrol();
+		} 
+		// if we didn't see the player and are not following the player,
+		// then we are on patrol, which is implemented with the onTrigger stuff
+		// so we don't need to do anything.
+		else {
+
 		}
 
 		// only set the dude's destination if both the player and enemy are alive
@@ -60,43 +72,40 @@ public class CopMovement : MonoBehaviour {
 //		}
 	}
 
-	void onPatrol() {
-		// Keep moving
-		//movement.Set(xMovement, 0f, zMovement);
-		// so we move by time, not by frame & we move at our speed
-		//movement = movement.normalized * speed * Time.deltaTime;
-		//enemyRigidBody.MovePosition(transform.position + movement);
+	void followPlayer() {
+		areWeFollowingPlayer = true;
+		nav.SetDestination(player.position);
+	}
+
+	void goBackOnPatrol() {
+		int returnCheckpoint = -100;
+		// see which checkpoint we are closest to and set our destination to that checkpoint
+		for (Transform checkpoint in checkpoints) {
+
+		}
 	}
 
 	// if it's time to turn....
 	void OnTriggerEnter() {
 		// Rotate
 		//transform.Rotate (transform.rotation.x + 90,transform.rotation.y,transform.rotation.z);
-		if (counter % 2 == 0) {
 			// When we enter a collider, set destination to the next collider's position
 			if (checkpointIndex >= checkpoints.Length) {
 				checkpointIndex = 0;
 			}
 
 			// set next destination
-			Debug.Log (checkpointIndex);
+			//Debug.Log (checkpointIndex);
 			nav.SetDestination (checkpoints [checkpointIndex].position);
 
 			checkpointIndex++;
-		}
-		counter++;
+
 	}
-
-
-
 
 	bool doWeSeePlayer() {
 		return false;
 	}
 
-	void goBackToPatrol() {
-
-	}
 
 	// Old Comments:
 	// Change where we move
