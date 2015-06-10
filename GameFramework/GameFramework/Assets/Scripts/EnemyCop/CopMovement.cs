@@ -11,13 +11,18 @@ public class CopMovement : MonoBehaviour {
  	// - How do we go back to patrolling? 
 	//       -- have a bool that says if we are patrolling or not
 	//       -- Initially & OnTriggerEnter --> we are patrolling 
+<<<<<<< HEAD
 
 
 	public float xMovement;
 	public float zMovement;
+=======
+	// - Create a non-player character that follows the player character?
+	//       -- make the sidekick a child (in unity terms) of the player
+	
+>>>>>>> origin/master
 	public int speed;
-	public ArrayList checkpoints; 
-	//public GameObject building;
+	public ArrayList[Transform] checkpoints; 
 
 	// what the enemy is moving toward
 	Transform player;
@@ -26,7 +31,7 @@ public class CopMovement : MonoBehaviour {
 	NavMeshAgent nav;
 	Vector3 movement;
 	Rigidbody enemyRigidBody;
-	//int currentStepCounter;
+	int checkpointIndex;
 
 	void Awake ()
 	{
@@ -36,6 +41,7 @@ public class CopMovement : MonoBehaviour {
 		//playerHealth = player.GetComponent <PlayerHealth> ();
 		//enemyHealth = GetComponent <EnemyHealth> ();
 		nav = GetComponent <NavMeshAgent> ();
+		nav.SetDestination (checkpoints [0]);
 
 	}
 	
@@ -63,51 +69,29 @@ public class CopMovement : MonoBehaviour {
 
 	void onPatrol() {
 		// Keep moving
-		movement.Set(xMovement, 0f, zMovement);
+		//movement.Set(xMovement, 0f, zMovement);
 		// so we move by time, not by frame & we move at our speed
-		movement = movement.normalized * speed * Time.deltaTime;
-		enemyRigidBody.MovePosition(transform.position + movement);
+		//movement = movement.normalized * speed * Time.deltaTime;
+		//enemyRigidBody.MovePosition(transform.position + movement);
 	}
 
 	// if it's time to turn....
-	void OnTriggerExit() {
+	void OnTriggerEnter() {
 		// Rotate
 		//transform.Rotate (transform.rotation.x + 90,transform.rotation.y,transform.rotation.z);
 
-		// Change where we move
-		// set x & z movements appropriately
-
-		// Movement Key: (x, z)
-		// UP: (0, 1)
-		// RIGHT: (1, 0)
-		// DOWN: (0, -1)
-		// LEFT: (-1, 0)
-
-
-		switch ((int) xMovement) 
-		{
-		case 0:
-			if (zMovement == 1) {
-				xMovement = 1f;
-				zMovement = 0f;
-			} else {
-				xMovement = -1f;
-				zMovement = 0f;
-			}
-			break;
-		case 1:
-			xMovement = 0f;
-			zMovement = -1f;
-			break;
-		case -1:
-			xMovement = 0f;
-			zMovement = 1f;
-			break;
-		default:
-			break;
+		// When we enter a collider, set destination to the next collider's position
+		if (checkpointIndex >= checkpoints.Count) {
+			checkpointIndex = 0;
 		}
-		
+
+		// set next destination
+		nav.SetDestination (checkpoints [checkpointIndex]);
+
+		checkpointIndex++;
 	}
+
+
 
 
 	bool doWeSeePlayer() {
@@ -117,4 +101,39 @@ public class CopMovement : MonoBehaviour {
 	void goBackToPatrol() {
 
 	}
+
+	// Old Comments:
+	// Change where we move
+	// set x & z movements appropriately
+	
+	// Movement Key: (x, z)
+	// UP: (0, 1)
+	// RIGHT: (1, 0)
+	// DOWN: (0, -1)
+	// LEFT: (-1, 0)
+	
+	
+	//		switch ((int) xMovement) 
+	//		{
+	//		case 0:
+	//			if (zMovement == 1) {
+	//				xMovement = 1f;
+	//				zMovement = 0f;
+	//			} else {
+	//				xMovement = -1f;
+	//				zMovement = 0f;
+	//			}
+	//			break;
+	//		case 1:
+	//			xMovement = 0f;
+	//			zMovement = -1f;
+	//			break;
+	//		case -1:
+	//			xMovement = 0f;
+	//			zMovement = 1f;
+	//			break;
+	//		default:
+	//			break;
+	//		}
+
 }
