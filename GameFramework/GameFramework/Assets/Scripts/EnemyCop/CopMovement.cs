@@ -3,14 +3,17 @@ using System.Collections;
 
 public class CopMovement : MonoBehaviour {
 
-	// TO DO:
+	// DONE:
 	// - Create police paths with box collider check points (navigation)
+	// - How do we go back to patrol area? -- go back to building GameObject? or box collider
+	// - How do we go back to patrolling --> became areWeFollowingPlayer? 
+	//       -- have a bool that says if we are patrolling or not
+	//       -- Initially & OnTriggerEnter --> we are patrolling
+
+	// TO DO:
 	// - Raycasting; so we can see the player
 	//       -- if you can get the tag, check if it is "player"
-	// - How do we go back to patrol area? -- go back to building GameObject? or box collider
- 	// - How do we go back to patrolling? 
-	//       -- have a bool that says if we are patrolling or not
-	//       -- Initially & OnTriggerEnter --> we are patrolling 
+  
 	// - Create a non-player character that follows the player character?
 	//       -- make the sidekick a child (in unity terms) of the player
 
@@ -26,6 +29,9 @@ public class CopMovement : MonoBehaviour {
 	int checkpointIndex;
 	bool areWeFollowingPlayer;
 	int shootableMask;
+
+	// for testing
+	int counter = 0;
 
 	void Awake ()
 	{
@@ -78,12 +84,26 @@ public class CopMovement : MonoBehaviour {
 	}
 
 	void goBackOnPatrol() {
+		areWeFollowingPlayer = false;
 		int goToCheckpoint = -1;
-		int minimumDistance = -100000000;
+		float minimumDistance = 100000000;
 		// see which checkpoint we are closest to and set our destination to that checkpoint
-		foreach (Transform checkpoint in checkpoints) {
-
+		// using for instead of foreach so we can set the checkpointIndex too
+		for (int i = 0; i < checkpoints.Length; i++) {
+			// get the distance from the enemy player
+			float distance = Vector3.Distance(checkpoints[i].position, enemyTransform.position);
+			// if less than minimumDistance, then make the checkpoint the one we go to. 
+			Debug.Log (distance);
+			if (distance < minimumDistance) {
+				minimumDistance = distance;
+				goToCheckpoint = i;
+			}
 		}
+		// if two checkpoints are equally distance from each other, then only the first
+		// will be taken, but that's okay because this is an approximation. 
+		checkpointIndex = goToCheckpoint;
+		//nav.SetDestination (checkpoints [checkpointIndex].position);
+		OnTriggerEnter ();
 	}
 
 	// if it's time to turn....
@@ -96,7 +116,7 @@ public class CopMovement : MonoBehaviour {
 			}
 
 			// set next destination
-			//Debug.Log (checkpointIndex);
+			Debug.Log (checkpointIndex);
 			nav.SetDestination (checkpoints [checkpointIndex].position);
 
 			checkpointIndex++;
@@ -104,9 +124,14 @@ public class CopMovement : MonoBehaviour {
 	}
 
 	bool doWeSeePlayer() {
+<<<<<<< HEAD
 		if (Physics.Raycast(enemyTransform.position, transform.forward, 100.0f, shootableMask)) {
 			return true;
 		}
+=======
+		counter++;
+		return counter < 50;
+>>>>>>> origin/master
 	}
 
 
