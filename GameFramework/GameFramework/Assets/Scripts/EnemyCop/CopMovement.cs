@@ -4,11 +4,15 @@ using System.Collections;
 public class CopMovement : MonoBehaviour {
 
 	// TO DO:
+	// - Create police paths with box collider check points (navigation)
 	// - Raycasting so we can see the player
-	// - How do we go back to patrol area? -- go back to building GameObject?
+	//       -- if you can get the tag, check if it is "player"
+	// - How do we go back to patrol area? -- go back to building GameObject? or box collider
  	// - How do we go back to patrolling? 
 	//       -- have a bool that says if we are patrolling or not
 	//       -- Initially & OnTriggerEnter --> we are patrolling 
+	// - Create a non-player character that follows the player character?
+	//       -- make the sidekick a child (in unity terms) of the player
 
 
 	public float xMovement;
