@@ -124,8 +124,10 @@ public class CopMovement : MonoBehaviour {
 	}
 
 	bool doWeSeePlayer() {
-		if (Physics.Raycast(enemyTransform.position, transform.forward, 100.0f, shootableMask)) {
+		if (Physics.Raycast (enemyTransform.position, transform.forward, 100.0f, shootableMask)) {
 			return true;
+		} else {
+			return false;
 		}
 	}
 
