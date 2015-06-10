@@ -1,0 +1,9 @@
+- Create a non-player character that follows the player character?
+       -- make the sidekick a child (in unity terms) of the player
+- Work on camera angle
+- Raycasting to detect the player
+- Putting posters on the wall?
+     -- how to put a new texture on the wall
+     -- spawn a new object on the wall where the player points?
+     -- find pre-existing posters so we know the politics that the player has
+     -- how does this affect the evolution of the game? community? police? media?
