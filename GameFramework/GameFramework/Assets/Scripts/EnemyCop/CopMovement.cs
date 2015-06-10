@@ -25,7 +25,7 @@ public class CopMovement : MonoBehaviour {
 	Vector3 movement;
 	Rigidbody enemyRigidBody;
 	int checkpointIndex;
-
+	int counter = 0;
 
 	void Awake ()
 	{
@@ -35,7 +35,7 @@ public class CopMovement : MonoBehaviour {
 		//playerHealth = player.GetComponent <PlayerHealth> ();
 		//enemyHealth = GetComponent <EnemyHealth> ();
 		nav = GetComponent <NavMeshAgent> ();
-		nav.SetDestination (checkpoints [0].position);
+		OnTriggerEnter ();
 	}
 	
 	// not fixed update because not keeping in time with physics
@@ -72,16 +72,19 @@ public class CopMovement : MonoBehaviour {
 	void OnTriggerEnter() {
 		// Rotate
 		//transform.Rotate (transform.rotation.x + 90,transform.rotation.y,transform.rotation.z);
+		if (counter % 2 == 0) {
+			// When we enter a collider, set destination to the next collider's position
+			if (checkpointIndex >= checkpoints.Length) {
+				checkpointIndex = 0;
+			}
 
-		// When we enter a collider, set destination to the next collider's position
-		if (checkpointIndex >= checkpoints.Length) {
-			checkpointIndex = 0;
+			// set next destination
+			Debug.Log (checkpointIndex);
+			nav.SetDestination (checkpoints [checkpointIndex].position);
+
+			checkpointIndex++;
 		}
-
-		// set next destination
-		nav.SetDestination (checkpoints[checkpointIndex].position);
-
-		checkpointIndex++;
+		counter++;
 	}
 
 
