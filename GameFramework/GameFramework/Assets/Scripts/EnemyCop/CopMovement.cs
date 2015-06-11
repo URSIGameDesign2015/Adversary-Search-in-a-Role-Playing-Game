@@ -19,6 +19,7 @@ public class CopMovement : MonoBehaviour {
 
 	public int speed;
 	public Transform[] checkpoints;
+	public float range = 100f;
 
 	// what the enemy is moving toward
 	Transform playerTransform;
@@ -128,39 +129,15 @@ public class CopMovement : MonoBehaviour {
 	}
 
 	bool doWeSeePlayer() {
-//<<<<<<< HEAD
-//		RaycastHit[] hits;
-//		hits = Physics.RaycastAll(transform.position, transform.forward, 100.0F);	
-//		for (int i = 0; i < hits.Length; i++) {
-//			RaycastHit hit = hits[i];
-//
-//			if (rend) {
-//				// Change the material of all hit colliders
-//				// to use a transparent shader.
-//				rend.material.shader = Shader.Find("Transparent/Diffuse");
-//				Color tempColor = rend.material.color;
-//				tempColor.a = 0.3F;
-//				rend.material.color = tempColor;
-//			}
-//		}
-		return true;
+		shootRay.origin = enemyTransform.position;
+		shootRay.direction = transform.forward;
+		if (Physics.Raycast (shootRay, out shootHit, 20.0f, shootableMask)) {
+			return shootHit.collider.tag == "Player";
+		} else {
+			return false;
+		}
 	}
 
-
-
-//
-//
-//		shootRay.origin = enemyTransform.transform.position;
-//		shootRay.direction = enemyTransform.transform.forward;
-//		if (Physics.Raycast(enemyTransform.position, shootHit, 100f, shootableMask)) {
-//=======
-//		if (Physics.Raycast (enemyTransform.position, transform.forward, 100.0f, shootableMask)) {
-//>>>>>>> origin/master
-//			return true;
-//		} else {
-//			return false;
-//		}
-//	}
 
 
 	// Old Comments:
