@@ -99,7 +99,7 @@ GameObject:
   - 65: {fileID: 8550870}
   - 23: {fileID: 8550869}
   - 64: {fileID: 8550872}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Building 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 54734027}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Buildings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,6 +322,7 @@ MonoBehaviour:
   - {fileID: 1022492586}
   - {fileID: 2037741957}
   - {fileID: 1740052752}
+  range: 100
 --- !u!195 &196214200
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -438,7 +439,7 @@ GameObject:
   - 65: {fileID: 278931779}
   - 23: {fileID: 278931778}
   - 64: {fileID: 278931781}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Building 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +525,7 @@ GameObject:
   - 65: {fileID: 305724903}
   - 23: {fileID: 305724902}
   - 64: {fileID: 305724905}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Building 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -607,15 +608,15 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 53a204f9f4b1819469e7429692d57d0e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -.75999999
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 53a204f9f4b1819469e7429692d57d0e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 53a204f9f4b1819469e7429692d57d0e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 24.7399998
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 53a204f9f4b1819469e7429692d57d0e, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1043,7 +1044,7 @@ GameObject:
   - 65: {fileID: 935929896}
   - 23: {fileID: 935929895}
   - 64: {fileID: 935929894}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Building 7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1129,7 +1130,7 @@ GameObject:
   - 65: {fileID: 1016792010}
   - 23: {fileID: 1016792009}
   - 64: {fileID: 1016792012}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Building 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1682,7 +1683,7 @@ GameObject:
   - 65: {fileID: 1993956806}
   - 23: {fileID: 1993956805}
   - 64: {fileID: 1993956808}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Building 5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1768,7 +1769,7 @@ GameObject:
   - 65: {fileID: 2023866763}
   - 23: {fileID: 2023866762}
   - 64: {fileID: 2023866766}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Building 6
   m_TagString: Untagged
   m_Icon: {fileID: 0}

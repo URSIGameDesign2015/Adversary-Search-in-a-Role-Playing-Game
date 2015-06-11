@@ -131,11 +131,8 @@ public class CopMovement : MonoBehaviour {
 	bool doWeSeePlayer() {
 		shootRay.origin = enemyTransform.position;
 		shootRay.direction = transform.forward;
-		if (Physics.Raycast (shootRay, out shootHit, 20.0f, shootableMask)) {
-			return shootHit.collider.tag == "Player";
-		} else {
-			return false;
-		}
+		Physics.Raycast (shootRay, out shootHit, 20.0f, shootableMask);
+		return shootHit.collider.tag == "Player";
 	}
 
 
