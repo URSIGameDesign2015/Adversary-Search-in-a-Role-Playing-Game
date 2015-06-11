@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
+// Important if we are using new UI components
+// Need this import
+using UnityEngine.UI;
 using System.Collections;
 
 public class UserHealth : MonoBehaviour {
 
 	public int startingHealth = 100;
 	public int currentHealth;
-	//public Slider healthSlider;
-	//public Image damageImage;
+	public Slider healthSlider;
+	public Image damageImage;
 	//public AudioClip deathClip;
 	public float flashSpeed = 5f;
 	public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
@@ -15,7 +18,6 @@ public class UserHealth : MonoBehaviour {
 	//Animator anim; // reference to animator components
 	//AudioSource playerAudio;
 	UserMovement userMovement; // reference to another script
-	//PlayerShooting playerShooting;
 	bool isDead;
 	bool damaged;
 	
@@ -32,14 +34,14 @@ public class UserHealth : MonoBehaviour {
 	
 	void Update ()
 	{
-//		if(damaged)
-//		{
-//			damageImage.color = flashColour;
-//		}
-//		else
-//		{
-//			damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
-//		}
+		if(damaged)
+		{
+			damageImage.color = flashColour;
+		}
+		else
+		{
+			damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+		}
 		damaged = false;
 	}
 	
@@ -50,7 +52,7 @@ public class UserHealth : MonoBehaviour {
 		
 		currentHealth -= amount;
 		
-		//healthSlider.value = currentHealth;
+		healthSlider.value = currentHealth;
 		
 		//playerAudio.Play ();
 		
@@ -64,16 +66,13 @@ public class UserHealth : MonoBehaviour {
 	void Death ()
 	{
 		isDead = true;
-		
-		//playerShooting.DisableEffects ();
-		
+
 		//anim.SetTrigger ("Die");
 		
 		//playerAudio.clip = deathClip;
 		//playerAudio.Play ();
 		
 		userMovement.enabled = false;
-		//playerShooting.enabled = false;
 	}
 	
 	
