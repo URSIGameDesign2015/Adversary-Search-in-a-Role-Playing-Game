@@ -9,7 +9,7 @@ public class CopAttack : MonoBehaviour {
 	
 	//Animator anim;
 	GameObject player;
-	//PlayerHealth playerHealth;
+	UserHealth playerHealth;
 	//EnemyHealth enemyHealth;
 	bool playerInRange;
 	float timer;
@@ -19,7 +19,7 @@ public class CopAttack : MonoBehaviour {
 	{
 		// do it here because its expensive
 		player = GameObject.FindGameObjectWithTag ("Player");
-		//playerHealth = player.GetComponent <PlayerHealth> ();
+		playerHealth = player.GetComponent <UserHealth> ();
 		//enemyHealth = GetComponent<EnemyHealth>();
 		//anim = GetComponent <Animator> ();
 	}
@@ -47,15 +47,15 @@ public class CopAttack : MonoBehaviour {
 	{
 		timer += Time.deltaTime;
 		
-//		if(timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0)
-//		{
-//			Attack ();
-//		}
-//		
-//		if(playerHealth.currentHealth <= 0)
-//		{
-//			anim.SetTrigger ("PlayerDead");
-//		}
+		if(timer >= timeBetweenAttacks && playerInRange /*&& enemyHealth.currentHealth > 0*/)
+		{
+			Attack ();
+		}
+		
+		if(playerHealth.currentHealth <= 0)
+		{
+			//anim.SetTrigger ("PlayerDead");
+		}
 	}
 	
 	
@@ -63,9 +63,9 @@ public class CopAttack : MonoBehaviour {
 	{
 		timer = 0f;
 		
-//		if(playerHealth.currentHealth > 0)
-//		{
-//			playerHealth.TakeDamage (attackDamage);
-//		}
+		if(playerHealth.currentHealth > 0)
+		{
+			playerHealth.TakeDamage (attackDamage);
+		}
 	}
 }
