@@ -28,7 +28,10 @@ public class CopMovement : MonoBehaviour {
 	NavMeshAgent nav;
 	int checkpointIndex;
 	bool areWeFollowingPlayer;
+
 	int shootableMask;
+	Ray shootRay;
+	RaycastHit shootHit;
 
 	// for testing
 	int counter = 0;
@@ -43,6 +46,7 @@ public class CopMovement : MonoBehaviour {
 		areWeFollowingPlayer = false;
 		nav = GetComponent <NavMeshAgent> ();
 		OnTriggerEnter ();
+		shootableMask = LayerMask.GetMask ("Shootable");
 
 	}
 	
@@ -124,7 +128,32 @@ public class CopMovement : MonoBehaviour {
 	}
 
 	bool doWeSeePlayer() {
+<<<<<<< HEAD
+		RaycastHit[] hits;
+		hits = Physics.RaycastAll(transform.position, transform.forward, 100.0F);	
+		for (int i = 0; i < hits.Length; i++) {
+			RaycastHit hit = hits[i];
+
+			if (rend) {
+				// Change the material of all hit colliders
+				// to use a transparent shader.
+				rend.material.shader = Shader.Find("Transparent/Diffuse");
+				Color tempColor = rend.material.color;
+				tempColor.a = 0.3F;
+				rend.material.color = tempColor;
+			}
+		}
+	}
+
+
+
+
+		shootRay.origin = enemyTransform.transform.position;
+		shootRay.direction = enemyTransform.transform.forward;
+		if (Physics.Raycast(enemyTransform.position, shootHit, 100f, shootableMask)) {
+=======
 		if (Physics.Raycast (enemyTransform.position, transform.forward, 100.0f, shootableMask)) {
+>>>>>>> origin/master
 			return true;
 		} else {
 			return false;
