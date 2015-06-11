@@ -17,7 +17,8 @@ public class CopMovement : MonoBehaviour {
 	// - Create a non-player character that follows the player character?
 	//       -- make the sidekick a child (in unity terms) of the player
 
-	public int speed;
+	public int chaseSpeed = 10;
+	public int patrolSpeed = 5;
 	public Transform[] checkpoints;
 	public float range = 100f;
 
@@ -46,6 +47,7 @@ public class CopMovement : MonoBehaviour {
 		//enemyHealth = GetComponent <EnemyHealth> ();
 		areWeFollowingPlayer = false;
 		nav = GetComponent <NavMeshAgent> ();
+		nav.speed = patrolSpeed;
 		OnTriggerEnter ();
 		shootableMask = LayerMask.GetMask ("Shootable");
 
@@ -85,6 +87,7 @@ public class CopMovement : MonoBehaviour {
 
 	void followPlayer() {
 		areWeFollowingPlayer = true;
+		nav.speed = chaseSpeed;
 		nav.SetDestination(playerTransform.position);
 	}
 
@@ -121,7 +124,7 @@ public class CopMovement : MonoBehaviour {
 			}
 
 			// set next destination
-			Debug.Log (checkpointIndex);
+			nav.speed = patrolSpeed;
 			nav.SetDestination (checkpoints [checkpointIndex].position);
 
 			checkpointIndex++;
@@ -129,10 +132,17 @@ public class CopMovement : MonoBehaviour {
 	}
 
 	bool doWeSeePlayer() {
+		Vector3 direction = transform.forward;
+		//direction = (enemyTransform.position - playerTransform.position).normalized;
+
 		shootRay.origin = enemyTransform.position;
-		shootRay.direction = transform.forward;
-		Physics.Raycast (shootRay, out shootHit, 20.0f, shootableMask);
-		return shootHit.collider.tag == "Player";
+		shootRay.direction = direction;
+		RaycastHit shootHit;
+		if (Physics.Raycast (shootRay, out shootHit, 20.0f, shootableMask)) {
+			return shootHit.collider.tag == "Player";
+		} else {
+			return false;
+		}
 	}
 
 
