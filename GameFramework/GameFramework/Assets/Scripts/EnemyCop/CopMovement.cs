@@ -28,7 +28,7 @@ public class CopMovement : MonoBehaviour {
 	//PlayerHealth playerHealth;
 	//EnemyHealth enemyHealth;
 	NavMeshAgent nav;
-	int checkpointIndex;
+	int checkpointIndex = 0;
 	bool areWeFollowingPlayer;
 
 	int shootableMask;
@@ -36,7 +36,7 @@ public class CopMovement : MonoBehaviour {
 	RaycastHit shootHit;
 
 	// for testing
-	int counter = 0;
+	//int counter = 0;
 
 	void Awake ()
 	{
@@ -48,9 +48,8 @@ public class CopMovement : MonoBehaviour {
 		areWeFollowingPlayer = false;
 		nav = GetComponent <NavMeshAgent> ();
 		nav.speed = patrolSpeed;
-		OnTriggerEnter ();
 		shootableMask = LayerMask.GetMask ("Shootable");
-
+		OnTriggerEnter ();
 	}
 	
 	// not fixed update because not keeping in time with physics
@@ -131,14 +130,19 @@ public class CopMovement : MonoBehaviour {
 
 	}
 
+	//making sure we hit the right checkpoint
+	void OnTriggerEnter(Collider collider) {
+
+	}
+
 	bool doWeSeePlayer() {
 		Vector3 direction = transform.forward;
-		//direction = (enemyTransform.position - playerTransform.position).normalized;
+		direction = (playerTransform.position - enemyTransform.position).normalized;
 
 		shootRay.origin = enemyTransform.position;
 		shootRay.direction = direction;
 		RaycastHit shootHit;
-		if (Physics.Raycast (shootRay, out shootHit, 20.0f, shootableMask)) {
+		if (Physics.Raycast (shootRay, out shootHit, 100.0f, shootableMask)) {
 			return shootHit.collider.tag == "Player";
 		} else {
 			return false;

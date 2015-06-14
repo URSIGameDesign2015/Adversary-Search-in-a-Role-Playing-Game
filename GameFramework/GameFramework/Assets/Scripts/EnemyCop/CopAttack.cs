@@ -13,6 +13,7 @@ public class CopAttack : MonoBehaviour {
 	//EnemyHealth enemyHealth;
 	bool playerInRange;
 	float timer;
+	CopMovement copMovement;
 	
 	
 	void Awake ()
@@ -21,6 +22,7 @@ public class CopAttack : MonoBehaviour {
 		player = GameObject.FindGameObjectWithTag ("Player");
 		playerHealth = player.GetComponent <UserHealth> ();
 		//enemyHealth = GetComponent<EnemyHealth>();
+		copMovement = GetComponent<CopMovement>();
 		//anim = GetComponent <Animator> ();
 	}
 	
@@ -54,6 +56,7 @@ public class CopAttack : MonoBehaviour {
 		
 		if(playerHealth.currentHealth <= 0)
 		{
+			copMovement.enabled = false;
 			//anim.SetTrigger ("PlayerDead");
 		}
 	}
