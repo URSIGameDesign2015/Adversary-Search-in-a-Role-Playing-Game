@@ -9,13 +9,13 @@ public class CopMovement : MonoBehaviour {
 	// - How do we go back to patrolling --> became areWeFollowingPlayer? 
 	//       -- have a bool that says if we are patrolling or not
 	//       -- Initially & OnTriggerEnter --> we are patrolling
-
-	// TO DO:
 	// - Raycasting; so we can see the player
 	//       -- if you can get the tag, check if it is "player"
-  
+
+	// TO DO:
 	// - Create a non-player character that follows the player character?
 	//       -- make the sidekick a child (in unity terms) of the player
+	// - Dialogue boxes
 
 	public int chaseSpeed = 10;
 	public int patrolSpeed = 5;
