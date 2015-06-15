@@ -43,7 +43,7 @@ public class UserMovement : MonoBehaviour {
 	}
 	
 	void animating (float h, float v) {
-		bool walking = h != 0f || v != 0f;
+	//	bool walking = h != 0f || v != 0f;
 //		anim.SetBool ("IsWalking", walking);
 	}
 }
