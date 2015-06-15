@@ -18,7 +18,7 @@ public class CopAttack : MonoBehaviour {
 	
 	void Awake ()
 	{
-		// do it here because its expensive
+		// do it here because it's expensive
 		player = GameObject.FindGameObjectWithTag ("Player");
 		playerHealth = player.GetComponent <UserHealth> ();
 		//enemyHealth = GetComponent<EnemyHealth>();
