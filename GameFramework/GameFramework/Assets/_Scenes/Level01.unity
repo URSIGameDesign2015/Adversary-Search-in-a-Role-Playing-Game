@@ -1156,7 +1156,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &249173259
 Transform:
   m_ObjectHideFlags: 0
@@ -1167,10 +1167,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1072998751}
-  - {fileID: 810847057}
-  - {fileID: 565951911}
-  - {fileID: 797291919}
+  - {fileID: 1637632678}
   m_Father: {fileID: 0}
   m_RootOrder: 7
 --- !u!4 &252363015 stripped
@@ -1885,7 +1882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &482820898
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2422,7 +2419,7 @@ GameObject:
   - 4: {fileID: 565951911}
   - 65: {fileID: 565951912}
   m_Layer: 0
-  m_Name: CheckPoint3
+  m_Name: CheckPoint4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2435,11 +2432,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 565951910}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.3299999, y: 1.90999997, z: 177.199997}
+  m_LocalPosition: {x: 1.89999998, y: 1.89999998, z: 175.699997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 249173259}
-  m_RootOrder: 2
+  m_Father: {fileID: 1637632678}
+  m_RootOrder: 3
 --- !u!65 &565951912
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3372,7 +3369,7 @@ GameObject:
   - 4: {fileID: 797291919}
   - 65: {fileID: 797291920}
   m_Layer: 0
-  m_Name: CheckPoint4
+  m_Name: CheckPoint3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3388,8 +3385,8 @@ Transform:
   m_LocalPosition: {x: 32.7999992, y: 1, z: 177}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 249173259}
-  m_RootOrder: 3
+  m_Father: {fileID: 1637632678}
+  m_RootOrder: 2
 --- !u!65 &797291920
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3491,10 +3488,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 810847055}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.3999996, y: 1, z: 198}
+  m_LocalPosition: {x: 32.7000008, y: 1, z: 198}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 249173259}
+  m_Father: {fileID: 1637632678}
   m_RootOrder: 1
 --- !u!1001 &884052332
 Prefab:
@@ -4330,10 +4327,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1072998750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5999999, y: 1, z: 196.899994}
+  m_LocalPosition: {x: 2.0999999, y: 1, z: 198.399994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 249173259}
+  m_Father: {fileID: 1637632678}
   m_RootOrder: 0
 --- !u!65 &1072998752
 BoxCollider:
@@ -5080,7 +5077,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1275158301
 Transform:
   m_ObjectHideFlags: 0
@@ -6335,6 +6332,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!1 &1637632677
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1637632678}
+  m_Layer: 0
+  m_Name: Enemy0CheckPoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1637632678
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1637632677}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1072998751}
+  - {fileID: 810847057}
+  - {fileID: 797291919}
+  - {fileID: 565951911}
+  m_Father: {fileID: 249173259}
+  m_RootOrder: 0
 --- !u!1001 &1648888622
 Prefab:
   m_ObjectHideFlags: 0
@@ -7213,11 +7241,15 @@ Prefab:
     - target: {fileID: 11493866, guid: e49e1985ba8ab7f49b5ba89795ff4a76, type: 2}
       propertyPath: checkpoints.Array.data[2]
       value: 
-      objectReference: {fileID: 565951911}
+      objectReference: {fileID: 797291919}
     - target: {fileID: 11493866, guid: e49e1985ba8ab7f49b5ba89795ff4a76, type: 2}
       propertyPath: checkpoints.Array.data[3]
       value: 
-      objectReference: {fileID: 797291919}
+      objectReference: {fileID: 565951911}
+    - target: {fileID: 101654, guid: e49e1985ba8ab7f49b5ba89795ff4a76, type: 2}
+      propertyPath: m_Name
+      value: Enemy0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e49e1985ba8ab7f49b5ba89795ff4a76, type: 2}
   m_IsPrefabParent: 0
