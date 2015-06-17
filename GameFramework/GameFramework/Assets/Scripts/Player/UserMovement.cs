@@ -3,17 +3,23 @@ using System.Collections;
 
 public class UserMovement : MonoBehaviour {
 	public float speed = 6f;
+	public Transform[] spawnPointsArray;
 	
 	Vector3 movement;
 //	Animator anim;
 	Rigidbody playerRigidBody;
 	int floorMask;
 	float camRayLength = 100f;
+	Transform playerTransform;
+	int spawnPoint;
 	
 	void Awake() {
 		floorMask = LayerMask.GetMask ("Floor");
 //		anim = GetComponent<Animator> ();
 		playerRigidBody = GetComponent<Rigidbody> ();
+		playerTransform = GetComponent<Transform> ();
+		setInitialPosition ();
+
 	}
 	
 	void FixedUpdate() {
@@ -23,7 +29,8 @@ public class UserMovement : MonoBehaviour {
 		//Turning ();
 //		animating (h, v);
 	}
-	
+
+
 	void Move (float h, float v) {
 		movement.Set(h, 0f, v);
 		movement = movement.normalized * speed * Time.deltaTime;
@@ -43,7 +50,13 @@ public class UserMovement : MonoBehaviour {
 	}
 	
 	void animating (float h, float v) {
-	//	bool walking = h != 0f || v != 0f;
-//		anim.SetBool ("IsWalking", walking);
+		//	bool walking = h != 0f || v != 0f;
+		//		anim.SetBool ("IsWalking", walking);
+	}
+
+	void setInitialPosition() {
+		spawnPoint = Random.Range (0, 4);
+		// set our cop at the position;
+		playerTransform.position = spawnPointsArray [spawnPoint].position;
 	}
 }
