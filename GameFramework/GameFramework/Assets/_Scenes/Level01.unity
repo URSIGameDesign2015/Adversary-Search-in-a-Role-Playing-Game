@@ -1971,6 +1971,10 @@ Prefab:
       propertyPath: speed
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 133718, guid: a95902721dbf0bc45a193cb14dbce913, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a95902721dbf0bc45a193cb14dbce913, type: 2}
   m_IsPrefabParent: 0
