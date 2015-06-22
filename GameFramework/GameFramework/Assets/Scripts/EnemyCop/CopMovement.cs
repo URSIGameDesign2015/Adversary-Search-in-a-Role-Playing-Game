@@ -97,7 +97,7 @@ public class CopMovement : MonoBehaviour {
 			// get the distance from the enemy player
 			float distance = Vector3.Distance(checkpoints[i].position, enemyTransform.position);
 			// if less than minimumDistance, then make the checkpoint the one we go to. 
-			Debug.Log (distance);
+//			Debug.Log (distance);
 			if (distance < minimumDistance) {
 				minimumDistance = distance;
 				goToCheckpoint = i;
