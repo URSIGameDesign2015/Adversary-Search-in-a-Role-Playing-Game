@@ -26,7 +26,7 @@ public class UserMovement : MonoBehaviour {
 		float h = Input.GetAxisRaw ("Horizontal");
 		float v = Input.GetAxisRaw ("Vertical");
 		Move (h, v);
-		//Turning ();
+		Turning ();
 //		animating (h, v);
 	}
 
@@ -35,18 +35,20 @@ public class UserMovement : MonoBehaviour {
 		movement.Set(h, 0f, v);
 		movement = movement.normalized * speed * Time.deltaTime;
 		playerRigidBody.MovePosition (transform.position + movement);
+		Quaternion newRotation = Quaternion.LookRotation (movement.normalized);
+		playerRigidBody.MoveRotation (newRotation);
 	}
 	
 	void Turning () {
-		Ray camRay = Camera.main.ScreenPointToRay (Input.mousePosition);
-		RaycastHit floorHit;
-		if (Physics.Raycast (camRay, out floorHit, camRayLength, floorMask)) {
-			Vector3 playerToMouse = floorHit.point - transform.position;
-			playerToMouse.y = 0f;
+//		Ray camRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+//		RaycastHit floorHit;
+//		if (Physics.Raycast (camRay, out floorHit, camRayLength, floorMask)) {
+//			Vector3 playerToMouse = floorHit.point - transform.position;
+//			playerToMouse.y = 0f;
 			
-			Quaternion newRotation = Quaternion.LookRotation (playerToMouse);
-			playerRigidBody.MoveRotation (newRotation);
-		}
+		//Quaternion newRotation = Quaternion.LookRotation (movement);
+//			playerRigidBody.MoveRotation (newRotation);
+//		}
 	}
 	
 	void animating (float h, float v) {
