@@ -28,6 +28,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		Vector3 m_CapsuleCenter;
 		CapsuleCollider m_Capsule;
 		bool m_Crouching;
+		public Transform[] spawnPointsArray;
+		Transform playerTransform;
+		int spawnPoint;
 
 
 		void Start()
@@ -40,8 +43,15 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 
 			m_Rigidbody.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
+
+			setInitialPosition ();
+			playerTransform = GetComponent<Transform>();
 		}
 
+		void setInitialPosition() {
+			spawnPoint = Random.Range (0, spawnPointsArray.Length);
+			playerTransform.position = spawnPointsArray [spawnPoint].position;
+		}
 
 		public void Move(Vector3 move, bool crouch, bool jump)
 		{

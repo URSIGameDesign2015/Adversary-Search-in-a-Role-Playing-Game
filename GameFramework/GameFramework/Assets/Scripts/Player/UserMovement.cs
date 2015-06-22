@@ -58,7 +58,6 @@ public class UserMovement : MonoBehaviour {
 
 	void setInitialPosition() {
 		spawnPoint = Random.Range (0, 4);
-		// set our cop at the position;
 		playerTransform.position = spawnPointsArray [spawnPoint].position;
 	}
 }
