@@ -46,7 +46,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
 
 			playerTransform = GetComponent<Transform>();
-			setInitialPosition ();
+			//setInitialPosition ();
 		}
 
 		void setInitialPosition() {
