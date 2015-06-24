@@ -2826,8 +2826,8 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 373983584}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_Materials:
   - {fileID: 2100000, guid: 34a9dd593b88f8c41890aed55e03e463, type: 2}
   m_SubsetIndices: 
@@ -2951,10 +2951,6 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 493730, guid: f890baebce850744eb6005c93983f61f, type: 2}
   m_PrefabInternal: {fileID: 84272386}
---- !u!4 &403350549 stripped
-Transform:
-  m_PrefabParentObject: {fileID: 420084, guid: e49e1985ba8ab7f49b5ba89795ff4a76, type: 2}
-  m_PrefabInternal: {fileID: 1782054070}
 --- !u!1001 &410626015
 Prefab:
   m_ObjectHideFlags: 0
@@ -7809,8 +7805,8 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1436741270}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_Materials:
   - {fileID: 2100000, guid: 34a9dd593b88f8c41890aed55e03e463, type: 2}
   m_SubsetIndices: 
@@ -8510,7 +8506,7 @@ BoxCollider:
   m_GameObject: {fileID: 1601914409}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -8551,8 +8547,8 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1619772925}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_Materials:
   - {fileID: 2100000, guid: 34a9dd593b88f8c41890aed55e03e463, type: 2}
   m_SubsetIndices: 
@@ -9538,10 +9534,10 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1827065686}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 75, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalPosition: {x: 0, y: 100, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 403350549}
+  m_Father: {fileID: 1502665994}
   m_RootOrder: 1
 --- !u!23 &1827065688
 MeshRenderer:
@@ -9550,8 +9546,8 @@ MeshRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1827065686}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_Materials:
   - {fileID: 2100000, guid: 34a9dd593b88f8c41890aed55e03e463, type: 2}
   m_SubsetIndices: 
