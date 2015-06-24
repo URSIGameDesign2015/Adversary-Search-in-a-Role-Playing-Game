@@ -54,9 +54,9 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			playerTransform.position = spawnPointsArray [spawnPoint].position;
 
 			// locking y position
-			Vector3 tmp = transform.position;
-			tmp.y = 0;
-			transform.position = tmp;
+//			Vector3 tmp = transform.position;
+//			tmp.y = 0;
+//			transform.position = tmp;
 		}
 
 		public void Move(Vector3 move, bool crouch, bool jump)
