@@ -46,12 +46,17 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
 
 			playerTransform = GetComponent<Transform>();
-			//setInitialPosition ();
+			setInitialPosition ();
 		}
 
 		void setInitialPosition() {
 			spawnPoint = Random.Range (0, spawnPointsArray.Length);
 			playerTransform.position = spawnPointsArray [spawnPoint].position;
+
+			// locking y position
+			Vector3 tmp = transform.position;
+			tmp.y = 0;
+			transform.position = tmp;
 		}
 
 		public void Move(Vector3 move, bool crouch, bool jump)
