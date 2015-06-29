@@ -827,7 +827,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 43967236}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: .980000019
   m_Height: 1.77999997
   m_Direction: 1
@@ -841,7 +841,7 @@ SphereCollider:
   m_GameObject: {fileID: 43967236}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: .689999998
   m_Center: {x: 0, y: .75, z: 0}
@@ -869,7 +869,7 @@ Animator:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 43967236}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 9000000, guid: 93840c92a74ad4b4fad51c9e42b8db11, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 1
@@ -1784,34 +1784,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 493730, guid: f890baebce850744eb6005c93983f61f, type: 2}
   m_PrefabInternal: {fileID: 633224809}
---- !u!1 &265350633
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 150876, guid: f91aff3f55203431ca5f32e473d256da, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 265350634}
-  m_Layer: 8
-  m_Name: Humanoid1:Root
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &265350634
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 424386, guid: f91aff3f55203431ca5f32e473d256da, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 265350633}
-  m_LocalRotation: {x: -.707106829, y: 0, z: -0, w: .707106829}
-  m_LocalPosition: {x: .000104768646, y: -.920353055, z: .000540569948}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 600943332}
-  m_Father: {fileID: 1626832128}
-  m_RootOrder: 1
 --- !u!1 &266306652
 GameObject:
   m_ObjectHideFlags: 0
@@ -3321,70 +3293,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f890baebce850744eb6005c93983f61f, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &600943331
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 107368, guid: f91aff3f55203431ca5f32e473d256da, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 600943332}
-  - 137: {fileID: 600943333}
-  m_Layer: 8
-  m_Name: Humanoid1:Mesh
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &600943332
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 436132, guid: f91aff3f55203431ca5f32e473d256da, type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 600943331}
-  m_LocalRotation: {x: .707106471, y: -0, z: -0, w: .707107067}
-  m_LocalPosition: {x: .00146875961, y: -.000747964717, z: -.00257094414}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 265350634}
-  m_RootOrder: 0
---- !u!137 &600943333
-SkinnedMeshRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 13757344, guid: f91aff3f55203431ca5f32e473d256da,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 600943331}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_Materials:
-  - {fileID: 2100000, guid: 5af700af60830b348818fa67a4b21281, type: 2}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 1
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  serializedVersion: 2
-  m_Quality: 0
-  m_UpdateWhenOffscreen: 1
-  m_Mesh: {fileID: 4300000, guid: 53a204f9f4b1819469e7429692d57d0e, type: 3}
-  m_Bones: []
-  m_BlendShapeWeights: []
-  m_RootBone: {fileID: 0}
-  m_AABB:
-    m_Center: {x: 0, y: .867625117, z: -.00321573019}
-    m_Extent: {x: .900342405, y: .87430203, z: .146428436}
-  m_DirtyAABB: 0
 --- !u!1001 &606962124
 Prefab:
   m_ObjectHideFlags: 0
@@ -8062,7 +7970,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2024757848}
-  - {fileID: 265350634}
   m_Father: {fileID: 0}
   m_RootOrder: 6
 --- !u!114 &1626832129
