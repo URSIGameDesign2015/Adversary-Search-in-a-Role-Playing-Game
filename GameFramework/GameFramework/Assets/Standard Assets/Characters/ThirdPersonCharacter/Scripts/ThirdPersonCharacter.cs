@@ -52,11 +52,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		void setInitialPosition() {
 			spawnPoint = Random.Range (0, spawnPointsArray.Length);
 			playerTransform.position = spawnPointsArray [spawnPoint].position;
-
-			// locking y position
-//			Vector3 tmp = transform.position;
-//			tmp.y = 0;
-//			transform.position = tmp;
 		}
 
 		public void Move(Vector3 move, bool crouch, bool jump)
@@ -232,7 +227,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			}
 			else
 			{
-				m_IsGrounded = false;
+				m_IsGrounded = true;
 				m_GroundNormal = Vector3.up;
 				m_Animator.applyRootMotion = false;
 			}
