@@ -94,7 +94,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				if (m_Crouching) return;
 				m_Capsule.height = m_Capsule.height / 2f;
 				m_Capsule.center = m_Capsule.center / 2f;
-				m_Crouching = true;
+				m_Crouching = false;
 			}
 			else
 			{
@@ -102,7 +102,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				float crouchRayLength = m_CapsuleHeight - m_Capsule.radius * k_Half;
 				if (Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength))
 				{
-					m_Crouching = true;
+					m_Crouching =false;
 					return;
 				}
 				m_Capsule.height = m_CapsuleHeight;
@@ -120,7 +120,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 				float crouchRayLength = m_CapsuleHeight - m_Capsule.radius * k_Half;
 				if (Physics.SphereCast(crouchRay, m_Capsule.radius * k_Half, crouchRayLength))
 				{
-					m_Crouching = true;
+					m_Crouching = false;
 				}
 			}
 		}
@@ -223,11 +223,11 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			{
 				m_GroundNormal = hitInfo.normal;
 				m_IsGrounded = true;
-				m_Animator.applyRootMotion = true;
+				m_Animator.applyRootMotion = false;
 			}
 			else
 			{
-				m_IsGrounded = true;
+				m_IsGrounded = false;
 				m_GroundNormal = Vector3.up;
 				m_Animator.applyRootMotion = false;
 			}
