@@ -65,9 +65,8 @@ public class AIPatrolMovement : MonoBehaviour {
 
 	void followPlayer() {
 		areWeFollowingPlayer = true;
-		//nav.speed = chaseSpeed;
+		characterControl.agent.speed = chaseSpeed;
 		characterControl.target = playerTransform;
-		//nav.SetDestination(playerTransform.position);
 	}
 
 	void goBackOnPatrol() {
@@ -113,9 +112,7 @@ public class AIPatrolMovement : MonoBehaviour {
 			checkpointIndex = 0;
 		}
 		// set next destination
-//		nav.speed = patrolSpeed;
-//		nav.SetDestination (checkpoints [checkpointIndex].position);
-
+		characterControl.agent.speed = patrolSpeed;
 		characterControl.target = checkpoints [checkpointIndex];
 		checkpointIndex++;
 	}
