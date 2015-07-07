@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityStandardAssets.Characters.ThirdPerson;
 
 public class AIPatrolMovement : MonoBehaviour {
 
@@ -16,12 +17,12 @@ public class AIPatrolMovement : MonoBehaviour {
 	int shootableMask;
 	Ray shootRay;
 	RaycastHit shootHit;
-//	AICharacterControl characterControl;
+	AICharacterControl characterControl;
 
 	// Use this for initialization
 	void Start () {
 	
-//		characterControl = this.GetComponent<AICharacterControl> ();
+		characterControl = this.GetComponent<AICharacterControl> ();
 		// where the player is
 		playerTransform = GameObject.FindGameObjectWithTag ("Player").transform; 
 		enemyTransform = GetComponent<Transform> ();
@@ -57,13 +58,13 @@ public class AIPatrolMovement : MonoBehaviour {
 		// set our cop at the position;
 
 		// Setting the target
-//		characterControl.target = checkpoints [checkpointIndex].position;
+		characterControl.target = checkpoints [checkpointIndex].position;
 	}
 
 	void followPlayer() {
 		areWeFollowingPlayer = true;
 		//nav.speed = chaseSpeed;
-//		characterControl.target = playerTransform;
+		characterControl.target = playerTransform;
 		//nav.SetDestination(playerTransform.position);
 	}
 
