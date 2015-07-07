@@ -57,9 +57,10 @@ public class AIPatrolMovement : MonoBehaviour {
 	void setInitialCheckpointAndPosition() {
 		checkpointIndex = Random.Range (0, checkpoints.Length);
 		// set our cop at the position;
+		enemyTransform.position = checkpoints [checkpointIndex].position;
 
 		// Setting the target
-		characterControl.target = checkpoints [checkpointIndex];
+		//characterControl.target = checkpoints [checkpointIndex];
 	}
 
 	void followPlayer() {
@@ -114,7 +115,8 @@ public class AIPatrolMovement : MonoBehaviour {
 		// set next destination
 //		nav.speed = patrolSpeed;
 //		nav.SetDestination (checkpoints [checkpointIndex].position);
-		
+
+		characterControl.target = checkpoints [checkpointIndex];
 		checkpointIndex++;
 	}
 
