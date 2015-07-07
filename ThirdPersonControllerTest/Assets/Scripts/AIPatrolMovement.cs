@@ -38,19 +38,20 @@ public class AIPatrolMovement : MonoBehaviour {
 		// if we see the player, then follow the player
 		if (doWeSeePlayer ()) {
 			followPlayer ();
-		} 
+		}
 		// if we were just following the player, but don't see the player anymore
 		// go back on patrol
-		else if (areWeFollowingPlayer) {
-			goBackOnPatrol();
-		} 
+		else {
+			if (areWeFollowingPlayer) {
+				goBackOnPatrol ();
+			}
 		// if we didn't see the player and are not following the player,
 		// then we are on patrol, which is implemented with the onTrigger & continuePatrol stuff
 		// so we don't need to do anything.
-		else {
-			
+			else {
+				return;
+			}
 		}
-
 	}
 
 	void setInitialCheckpointAndPosition() {
@@ -58,7 +59,7 @@ public class AIPatrolMovement : MonoBehaviour {
 		// set our cop at the position;
 
 		// Setting the target
-		characterControl.target = checkpoints [checkpointIndex].position;
+		characterControl.target = checkpoints [checkpointIndex];
 	}
 
 	void followPlayer() {
@@ -71,7 +72,7 @@ public class AIPatrolMovement : MonoBehaviour {
 	void goBackOnPatrol() {
 		areWeFollowingPlayer = false;
 		// so that it errors if the length is zero --> something must be there for the cop
-		// to go to!
+		// to go to
 		int goToCheckpoint = -100;
 		float minimumDistance = 100000000;
 		// see which checkpoint we are closest to and set our destination to that checkpoint
