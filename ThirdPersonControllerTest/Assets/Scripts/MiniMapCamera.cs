@@ -3,12 +3,12 @@ using System.Collections;
 
 public class MiniMapCamera : MonoBehaviour {
 
-	Camera camMini;
-	float none = 0;
+//	Camera camMini;
+//	float none = 0;
 
 	// Use this for initialization
 	void Start () {
-		camMini = GetComponent<Camera> ();
+		//camMini = GetComponent<Camera> ();
 	}
 
 	// Update is called once per frame
@@ -16,7 +16,7 @@ public class MiniMapCamera : MonoBehaviour {
 	
 	}
 
-	void LateUpdate() {
-		camMini.transform.rotation = Quaternion.Euler (Vector3 (0, 0, 0));
-	}
+//	void LateUpdate() {
+//		camMini.transform.rotation = Quaternion.Euler (Vector3 (0, 0, 0));
+//	}
 }
