@@ -3,47 +3,38 @@ using System.Collections;
 
 public class PosterRendering : MonoBehaviour {
 
-//	public float timeBetweenBullets = 0.15f;
-//	public float range = 100f;
+	public float timeBetweenBullets = 0.15f;
+	public float range = 100f;
 	public Object poster;
 
-//	float timer;
-//	Ray shootRay;
-//	RaycastHit shootHit;
-//	int shootableMask;
+	float timer;
+	Ray shootRay;
+	RaycastHit shootHit;
+	int shootableMask;
 
-//	void Awake ()
-//	{
-//		shootableMask = LayerMask.GetMask ("Shootable");
-//	}
+	void Awake ()
+	{
+		shootableMask = LayerMask.GetMask ("Shootable");
+	}
 
-	void Update () {
-		if (Input.GetButtonDown ("Fire1")) {
-			var mousePos = Input.mousePosition;
-			mousePos.z = 2.0f;       // we want 2m away from the camera position
-			var objectPos = Camera.current.ScreenToWorldPoint(mousePos);
-			Instantiate(poster, objectPos, Quaternion.identity);
+
+	void Update ()
+	{	
+		if(Input.GetButton ("Fire1")) {
+			Shoot ();
+		}
+
+	}
+	
+	
+	void Shoot ()
+	{
+		shootRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+		if (Physics.Raycast (shootRay, out shootHit, range, shootableMask)) {
+			if (shootHit.collider.tag == "canTag") {
+				Instantiate (poster, shootHit.point, Quaternion.identity);
+			}
 		}
 	}
+
 }
-	
-//	void Update ()
-//	{	
-//		if(Input.GetButton ("Fire1")) {
-//			Shoot ();
-//		}
-//
-//	}
-//	
-//	
-//	void Shoot ()
-//	{
-//		shootRay = Camera.main.ScreenPointToRay (Input.mousePosition);
-//		if (Physics.Raycast (shootRay, out shootHit, range, shootableMask)) {
-//			if (shootHit.collider.tag == "canTag") {
-//				Instantiate (poster, shootHit.point, Quaternion.identity);
-//			}
-//		}
-//	}
-//
-//}
