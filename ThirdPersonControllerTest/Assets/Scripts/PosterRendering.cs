@@ -3,13 +3,12 @@ using System.Collections;
 
 public class PosterRendering : MonoBehaviour {
 
-	public float timeBetweenBullets = 0.15f;
-	public float range = 100f;
+	public float timeBetweenBullets = 0f;
+	public float range = 10f;
 	public GameObject poster;
 
 	float timer;
 	Ray shootRay;
-	RaycastHit shootHit;
 	int shootableMask;
 
 	void Awake ()
@@ -20,23 +19,28 @@ public class PosterRendering : MonoBehaviour {
 
 	void Update ()
 	{	
-		if(Input.GetButton ("Fire1")) {
-			Shoot ();
-			Debug.Log("shot");
-		}
-
-	}
-	
-	
-	void Shoot ()
-	{
-		shootRay = Camera.main.ScreenPointToRay (Input.mousePosition);
-		if (Physics.Raycast (shootRay, out shootHit, range, shootableMask)) {
-			if (shootHit.collider.tag == "canTag") {
-				Instantiate (poster, shootHit.point, Quaternion.identity);
-				Debug.Log ("instantiate");
+		if (Input.GetButton ("Fire1")) {
+			shootRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+			RaycastHit shootHit;
+			if (Physics.Raycast (shootRay, out shootHit, range, shootableMask)) {
+				if (shootHit.collider.tag == "canTag") {
+					Instantiate (poster, shootHit.point, Quaternion.identity);
+					Debug.Log ("instantiate");
+				}
 			}
 		}
 	}
-
 }
+	
+	
+//	void Shoot ()
+//	{
+//		shootRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+//		if (Physics.Raycast (shootRay, out shootHit, range, shootableMask)) {
+//			if (shootHit.collider.tag == "canTag") {
+//				Instantiate (poster, shootHit.point, Quaternion.identity);
+//				Debug.Log ("instantiate");
+//			}
+//		}
+//	}
+	
