@@ -5,7 +5,7 @@ public class PosterRendering : MonoBehaviour {
 
 	public float timeBetweenBullets = 0.15f;
 	public float range = 100f;
-	public Object poster;
+	public GameObject poster;
 
 	float timer;
 	Ray shootRay;
@@ -22,6 +22,7 @@ public class PosterRendering : MonoBehaviour {
 	{	
 		if(Input.GetButton ("Fire1")) {
 			Shoot ();
+			Debug.Log("shot");
 		}
 
 	}
@@ -33,6 +34,7 @@ public class PosterRendering : MonoBehaviour {
 		if (Physics.Raycast (shootRay, out shootHit, range, shootableMask)) {
 			if (shootHit.collider.tag == "canTag") {
 				Instantiate (poster, shootHit.point, Quaternion.identity);
+				Debug.Log ("instantiate");
 			}
 		}
 	}
