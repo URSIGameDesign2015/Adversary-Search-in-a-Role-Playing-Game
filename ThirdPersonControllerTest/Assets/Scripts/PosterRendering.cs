@@ -4,7 +4,7 @@ using System.Collections;
 public class PosterRendering : MonoBehaviour {
 
 	public float timeBetweenBullets = 0f;
-	public float range = 10f;
+	public float range = 100f;
 	public GameObject poster;
 
 	float timer;
@@ -25,22 +25,9 @@ public class PosterRendering : MonoBehaviour {
 			if (Physics.Raycast (shootRay, out shootHit, range, shootableMask)) {
 				if (shootHit.collider.tag == "canTag") {
 					Instantiate (poster, shootHit.point, Quaternion.identity);
-					Debug.Log ("instantiate");
 				}
 			}
 		}
 	}
 }
-	
-	
-//	void Shoot ()
-//	{
-//		shootRay = Camera.main.ScreenPointToRay (Input.mousePosition);
-//		if (Physics.Raycast (shootRay, out shootHit, range, shootableMask)) {
-//			if (shootHit.collider.tag == "canTag") {
-//				Instantiate (poster, shootHit.point, Quaternion.identity);
-//				Debug.Log ("instantiate");
-//			}
-//		}
-//	}
 	
