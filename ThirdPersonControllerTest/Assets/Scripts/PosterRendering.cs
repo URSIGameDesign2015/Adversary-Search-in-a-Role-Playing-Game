@@ -24,7 +24,9 @@ public class PosterRendering : MonoBehaviour {
 			RaycastHit shootHit;
 			if (Physics.Raycast (shootRay, out shootHit, range, shootableMask)) {
 				if (shootHit.collider.tag == "canTag") {
-					Instantiate (poster, shootHit.point, Quaternion.identity);
+					Vector3 relativePos = shootHit.transform.position - transform.position;
+					Quaternion rotation = Quaternion.LookRotation(relativePos);
+					Instantiate (poster, shootHit.point, rotation);
 				}
 			}
 		}
