@@ -10,10 +10,12 @@ public class PosterRendering : MonoBehaviour {
 	float timer;
 	Ray shootRay;
 	int shootableMask;
+	Transform playerTransform; 
 
 	void Awake ()
 	{
 		shootableMask = LayerMask.GetMask ("Shootable");
+		playerTransform = GetComponent<Transform> ();
 	}
 
 
@@ -24,8 +26,8 @@ public class PosterRendering : MonoBehaviour {
 			RaycastHit shootHit;
 			if (Physics.Raycast (shootRay, out shootHit, range, shootableMask)) {
 				if (shootHit.collider.tag == "canTag") {
-					Vector3 relativePos = shootHit.transform.position - transform.position;
-					Quaternion rotation = Quaternion.LookRotation(relativePos);
+					float speed = 0.1f;
+					Quaternion rotation = Quaternion.Euler(shootHit.normal);
 					Instantiate (poster, shootHit.point, rotation);
 				}
 			}
