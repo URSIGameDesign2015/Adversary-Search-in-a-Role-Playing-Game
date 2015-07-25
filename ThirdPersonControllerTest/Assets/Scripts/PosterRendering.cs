@@ -26,8 +26,7 @@ public class PosterRendering : MonoBehaviour {
 			RaycastHit shootHit;
 			if (Physics.Raycast (shootRay, out shootHit, range, shootableMask)) {
 				if (shootHit.collider.tag == "canTag") {
-					float speed = 0.1f;
-					Quaternion rotation = Quaternion.Euler(shootHit.normal);
+					Quaternion rotation = Quaternion.FromToRotation(playerTransform.position, shootHit.transform.position);
 					Instantiate (poster, shootHit.point, rotation);
 				}
 			}
