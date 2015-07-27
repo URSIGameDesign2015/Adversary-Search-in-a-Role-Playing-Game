@@ -3,8 +3,8 @@ using System.Collections;
 
 public class PosterRendering : MonoBehaviour {
 
-	public float timeBetweenBullets = 0f;
-	public float range = 100f;
+	public float timeBetweenBullets = 1.0f;
+	public float range = 100.0f;
 	public GameObject poster;
 
 	float timer;
@@ -21,13 +21,22 @@ public class PosterRendering : MonoBehaviour {
 
 	void Update ()
 	{	
-		if (Input.GetButton ("Fire1")) {
+		timer += Time.deltaTime;
+
+		if (Input.GetButton ("Fire1") && timer > timeBetweenBullets && Time.timeScale != 0) {
 			shootRay = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit shootHit;
 			if (Physics.Raycast (shootRay, out shootHit, range, shootableMask)) {
+				Debug.Log("something happened");
 				if (shootHit.collider.tag == "canTag") {
-					Quaternion rotation = Quaternion.FromToRotation(shootHit.point, playerTransform.position);
+					Vector3 helperPoint = shootHit.point;
+					helperPoint.y += 1;
+					Vector3 side1 = helperPoint - shootHit.point;
+					Vector3 normal = Vector3.Cross(side1, transform.up).normalized;
+					Vector3 normalAngles = normal * 90; 
+					Quaternion rotation = Quaternion.Euler(normal[2], normal[0], normal[1]);
 					Instantiate (poster, shootHit.point, rotation);
+					Debug.Log ("object spawned");
 				}
 			}
 		}
