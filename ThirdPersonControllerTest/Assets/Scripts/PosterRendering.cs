@@ -34,7 +34,7 @@ public class PosterRendering : MonoBehaviour {
 					Vector3 side1 = helperPoint - shootHit.point;
 					Vector3 normal = Vector3.Cross(side1, transform.up).normalized;
 					Vector3 normalAngles = normal * 90; 
-					Quaternion rotation = Quaternion.Euler(normal[2], normal[0], normal[1]);
+					Quaternion rotation = Quaternion.Euler(normalAngles[2], normalAngles[0], normalAngles[1]);
 					Instantiate (poster, shootHit.point, rotation);
 					Debug.Log ("object spawned");
 				}
