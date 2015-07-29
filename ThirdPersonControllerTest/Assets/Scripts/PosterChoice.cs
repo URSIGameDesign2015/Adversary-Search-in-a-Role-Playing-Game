@@ -3,19 +3,17 @@ using System.Collections;
 
 public class PosterChoice : MonoBehaviour {
 
-//	Animator anim;
-//	double posterIndicator;
-//
-//	void Awake () {
-//		anim = GetComponent<Animator> ();
-//	}
-//
-//	void Update () {
-//		posterIndicator = Input.GetKey ();
-//		if (posterIndicator == "1") {
-//			return;
-//		}
+	Animator anim;
 
-//	}
+	void Awake () {
+		anim = GetComponent<Animator> ();
+	}
+
+	void Update () {
+		if (Input.GetKey (KeyCode.A)){
+			anim.SetTrigger("PosterChoice");
+		}
+
+	}
 
 }

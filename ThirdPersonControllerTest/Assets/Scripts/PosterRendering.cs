@@ -10,12 +10,12 @@ public class PosterRendering : MonoBehaviour {
 	float timer;
 	Ray shootRay;
 	int shootableMask;
-	Transform playerTransform; 
+//	Transform playerTransform; 
 
 	void Awake ()
 	{
 		shootableMask = LayerMask.GetMask ("Shootable");
-		playerTransform = GetComponent<Transform> ();
+//		playerTransform = GetComponent<Transform> ();
 	}
 
 
