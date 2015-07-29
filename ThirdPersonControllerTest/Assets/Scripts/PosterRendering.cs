@@ -23,20 +23,20 @@ public class PosterRendering : MonoBehaviour {
 	{	
 		timer += Time.deltaTime;
 
-		if (Input.GetButton ("Fire1") && timer > timeBetweenBullets && Time.timeScale != 0) {
+		if (Input.GetButton ("Fire1") && timer > timeBetweenBullets) {
 			shootRay = Camera.main.ScreenPointToRay (Input.mousePosition);
 			RaycastHit shootHit;
 			if (Physics.Raycast (shootRay, out shootHit, range, shootableMask)) {
-				Debug.Log("something happened");
 				if (shootHit.collider.tag == "canTag") {
-					Vector3 helperPoint = shootHit.point;
-					helperPoint.y += 1;
-					Vector3 side1 = helperPoint - shootHit.point;
-					Vector3 normal = Vector3.Cross(side1, transform.up).normalized;
-					Vector3 normalAngles = normal * 90; 
-					Quaternion rotation = Quaternion.Euler(normalAngles[2], normalAngles[0], normalAngles[1]);
+					Vector3 helperPointOne = shootHit.point;
+					helperPointOne.y -= 1;
+					Vector3 side1 = helperPointOne - shootHit.point;
+					Vector3 helperPointTwo = helperPointOne;
+					helperPointTwo.x += 1;
+					Vector3 side2 = helperPointTwo - shootHit.point;
+					Vector3 normal = Vector3.Cross(side1, side2).normalized;
+					Quaternion rotation = Quaternion.FromToRotation(normal, transform.up);
 					Instantiate (poster, shootHit.point, rotation);
-					Debug.Log ("object spawned");
 					timer = 0;
 				}
 			}
