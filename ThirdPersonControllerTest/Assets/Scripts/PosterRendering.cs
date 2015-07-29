@@ -19,7 +19,7 @@ public class PosterRendering : MonoBehaviour {
 	}
 
 
-	void Update ()
+	void FixedUpdate ()
 	{	
 		timer += Time.deltaTime;
 
@@ -37,6 +37,7 @@ public class PosterRendering : MonoBehaviour {
 					Quaternion rotation = Quaternion.Euler(normalAngles[2], normalAngles[0], normalAngles[1]);
 					Instantiate (poster, shootHit.point, rotation);
 					Debug.Log ("object spawned");
+					timer = 0;
 				}
 			}
 		}
