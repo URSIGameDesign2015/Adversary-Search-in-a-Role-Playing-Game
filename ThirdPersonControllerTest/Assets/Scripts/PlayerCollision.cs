@@ -7,19 +7,30 @@ public class PlayerCollision : MonoBehaviour {
 	Animator anim;
 	GameObject cop;
 	AIPatrolMovement copPatrol;
+	bool copInRange;
+	GameObject[] cops;
 
 	void Start () {
 		HUDCanvas = GameObject.FindGameObjectWithTag ("HUDCanvas");
 		anim = HUDCanvas.GetComponent<Animator> ();
+		cops = GameObject.FindGameObjectsWithTag ("Cop");
 	}
 
 
-	void OnCollisionEnter (Collision col) {
-		if (col.gameObject.tag == "Cop") {
+	void Update () {
+		if (copInRange) {
 			anim.SetTrigger ("EnemyCollision");
 			if (Input.GetKey(KeyCode.L)) {
-				anim.SetTrigger ("BackToGame");
+				anim.SetTrigger("BackToGame");
 			}
+		}
+	}
+
+	void OnCollisionEnter (Collision col) {
+		GameObject copHit = col;
+		int pos = cops.IndexOf(cops, copHit);
+		if (pos > -1) {
+			copInRange = true;
 		}
 	}
 
