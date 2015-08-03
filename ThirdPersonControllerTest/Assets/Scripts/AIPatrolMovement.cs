@@ -54,6 +54,12 @@ public class AIPatrolMovement : MonoBehaviour {
 		}
 	}
 
+	void OnCollisionEnter (Collision col) {
+		if (col.gameObject.tag == "Cop") {
+			goBackOnPatrol();
+		}
+	}
+
 	void setInitialCheckpointAndPosition() {
 		checkpointIndex = Random.Range (0, checkpoints.Length);
 		// set our cop at the position;

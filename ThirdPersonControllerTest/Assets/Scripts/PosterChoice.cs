@@ -17,7 +17,7 @@ public class PosterChoice : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Input.GetKey (KeyCode.A)) {
+		if (Input.GetKey (KeyCode.K)) {
 			anim.SetTrigger ("PosterChoice");
 		}
 	}
