@@ -16,6 +16,14 @@ public class PlayerCollision : MonoBehaviour {
 		cops = GameObject.FindGameObjectsWithTag ("Cop");
 	}
 
+	void OnCollisionEnter (Collision col) {
+		GameObject colHit = col.gameObject;
+		for (int i= 0; i < cops.Length; i++) {
+			if (cops [i] == colHit) {
+				copInRange = true;
+			}
+		}
+	}
 
 	void Update () {
 		if (copInRange) {
@@ -23,14 +31,6 @@ public class PlayerCollision : MonoBehaviour {
 			if (Input.GetKey(KeyCode.L)) {
 				anim.SetTrigger("BackToGame");
 			}
-		}
-	}
-
-	void OnCollisionEnter (Collision col) {
-		GameObject copHit = col;
-		int pos = cops.IndexOf(cops, copHit);
-		if (pos > -1) {
-			copInRange = true;
 		}
 	}
 
