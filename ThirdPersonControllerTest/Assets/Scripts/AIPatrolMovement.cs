@@ -8,6 +8,7 @@ public class AIPatrolMovement : MonoBehaviour {
 	public int patrolSpeed = 5;
 	public Transform[] checkpoints;
 	public float range = 100f;
+	public bool doWeSeePlayer;
 
 	// what the enemy is moving toward
 	Transform playerTransform;
@@ -35,8 +36,9 @@ public class AIPatrolMovement : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		lookForPlayer ();
 		// if we see the player, then follow the player
-		if (doWeSeePlayer ()) {
+		if (doWeSeePlayer == true) {
 			followPlayer ();
 		}
 		// if we were just following the player, but don't see the player anymore
@@ -75,7 +77,7 @@ public class AIPatrolMovement : MonoBehaviour {
 		characterControl.target = playerTransform;
 	}
 
-	void goBackOnPatrol() {
+	public void goBackOnPatrol() {
 		areWeFollowingPlayer = false;
 		// so that it errors if the length is zero --> something must be there for the cop
 		// to go to
@@ -123,7 +125,7 @@ public class AIPatrolMovement : MonoBehaviour {
 		checkpointIndex++;
 	}
 
-	bool doWeSeePlayer() {
+	bool lookForPlayer() {
 		// creating a vector from the enemy to the player
 		Vector3 direction = (playerTransform.position - enemyTransform.position).normalized;
 		
@@ -136,8 +138,10 @@ public class AIPatrolMovement : MonoBehaviour {
 		if (Physics.Raycast (shootRay, out shootHit, 100.0f, shootableMask)) {
 			// i.e. the first thing the ray hits is the player, then true --> if not false
 			return shootHit.collider.tag == "Player";
+			doWeSeePlayer = true;
 		} else {
 			// if the ray doesn't hit anything, then the cop must not see the player
+			doWeSeePlayer = false;
 			return false;
 		}
 	}

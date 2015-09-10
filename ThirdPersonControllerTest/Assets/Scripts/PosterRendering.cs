@@ -28,14 +28,8 @@ public class PosterRendering : MonoBehaviour {
 			RaycastHit shootHit;
 			if (Physics.Raycast (shootRay, out shootHit, range, shootableMask)) {
 				if (shootHit.collider.tag == "canTag") {
-					Vector3 helperPointOne = shootHit.point;
-					helperPointOne.y -= 1;
-					Vector3 side1 = helperPointOne - shootHit.point;
-					Vector3 helperPointTwo = helperPointOne;
-					helperPointTwo.x += 1;
-					Vector3 side2 = helperPointTwo - shootHit.point;
-					Vector3 normal = Vector3.Cross(side1, side2).normalized;
-					Quaternion rotation = Quaternion.FromToRotation(normal, transform.up);
+					Transform hitTransform = shootHit.transform;
+					Quaternion rotation = hitTransform.rotation;
 					Instantiate (poster, shootHit.point, rotation);
 					timer = 0;
 				}
