@@ -10,6 +10,8 @@ public class PosterRendering : MonoBehaviour {
 	float timer;
 	Ray shootRay;
 	int shootableMask;
+	float smallDiff = 0.01f;
+	Vector3 posterPos;
 //	Transform playerTransform; 
 
 	void Awake ()
@@ -30,7 +32,11 @@ public class PosterRendering : MonoBehaviour {
 				if (shootHit.collider.tag == "canTag") {
 					Transform hitTransform = shootHit.transform;
 					Quaternion rotation = hitTransform.rotation;
-					Instantiate (poster, shootHit.point, rotation);
+//					posterPos.x = shootHit.point.x + smallDiff;
+//					posterPos.y = shootHit.point.y + smallDiff;
+//					posterPos.z = shootHit.point.z + smallDiff;
+					posterPos = shootHit.point;
+					Instantiate (poster, posterPos, rotation);
 					timer = 0;
 				}
 			}
